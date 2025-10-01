@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teacher's Day!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="white" opacity="0.8"/></svg>'), auto;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.6);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            font-size: 3em;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .chalk-mark {
+            position: fixed;
+            font-size: 2em;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none;
+            animation: chalkAppear 0.5s ease-out;
+            z-index: 1000;
+        }
+
+        @keyframes chalkAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.5) rotate(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .hidden-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 40px 60px;
+            border-radius: 30px;
+            font-size: 2.5em;
+            z-index: 2000;
+            animation: popIn 0.8s ease-out forwards;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            60% {
+                transform: translate(-50%, -50%) scale(1.1) rotate(10deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .instruction {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .message {
+                font-size: 1em;
+                padding: 15px;
+            }
+            .button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Teacher's Day! 🎉</h1>
+        <div class="message">
+            Dear Teacher,<br><br>
+            Thank you for inspiring us every day with your patience, wisdom, and kindness. 
+            You make learning an adventure and help us believe in ourselves. 
+            You're not just our teacher—you're our guide, our mentor, and our hero! 
+            ✨📚❤️
+        </div>
+        <button class="button" id="cheerBtn">🎵 Hear Our Cheers!</button>
+        <p class="instruction">✨ Click anywhere on the page for a surprise! ✨</p>
+    </div>
+
+    <script>
+        // Create balloons
+        const balloonEmojis = ['🎈', '🎈', '🎈', '🎈', '🎈'];
+        const balloonColors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#1dd1a1'];
+        
+        balloonEmojis.forEach((emoji, i) => {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.textContent = emoji;
+            balloon.style.left = `${(i + 1) * 18}%`;
+            balloon.style.animationDelay = `${i * 0.5}s`;
+            balloon.style.animationDuration = `${5 + i}s`;
+            document.body.appendChild(balloon);
+        });
+
+        // Create confetti
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.top = `-${Math.random() * 100}px`;
+            confetti.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+            confetti.style.animationDuration = `${3 + Math.random() * 4}s`;
+            confetti.style.animationDelay = `${Math.random() * 3}s`;
+            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+            document.body.appendChild(confetti);
+        }
+
+        // Chalk effect
+        let clickCount = 0;
+        const chalkLetters = ['T', 'H', 'A', 'N', 'K', ' ', 'Y', 'O', 'U', '!', '❤️'];
+        
+        // Create AudioContext for chalk sound
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+
+        function playChalkSound() {
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            oscillator.frequency.value = 800 + Math.random() * 200;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+            
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.1);
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'cheerBtn') return;
+            
+            if (clickCount < chalkLetters.length) {
+                playChalkSound();
+                
+                const chalk = document.createElement('div');
+                chalk.className = 'chalk-mark';
+                chalk.textContent = chalkLetters[clickCount];
+                chalk.style.left = e.clientX + 'px';
+                chalk.style.top = e.clientY + 'px';
+                document.body.appendChild(chalk);
+                
+                clickCount++;
+                
+                if (clickCount === chalkLetters.length) {
+                    setTimeout(() => {
+                        const hiddenMsg = document.createElement('div');
+                        hiddenMsg.className = 'hidden-message';
+                        hiddenMsg.innerHTML = '✨ You are the BEST teacher ever! ✨<br>🌟👨‍🏫👩‍🏫🌟';
+                        document.body.appendChild(hiddenMsg);
+                    }, 500);
+                }
+            }
+        });
+
+        // Cheer button with sound
+        document.getElementById('cheerBtn').addEventListener('click', function() {
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            // Create a cheerful melody
+            const notes = [523.25, 587.33, 659.25, 783.99, 880.00]; // C, D, E, G, A
+            let time = audioCtx.currentTime;
+            
+            notes.forEach((freq, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.frequency.value = freq;
+                osc.type = 'sine';
+                
+                gain.gain.setValueAtTime(0.2, time);
+                gain.gain.exponentialRampToValueAtTime(0.01, time + 0.3);
+                
+                osc.start(time);
+                osc.stop(time + 0.3);
+                
+                time += 0.2;
+            });
+            
+            // Add clapping sound effect
+            setTimeout(() => {
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const noise = audioCtx.createBufferSource();
+                        const buffer = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.1, audioCtx.sampleRate);
+                        const data = buffer.getChannelData(0);
+                        for (let j = 0; j < data.length; j++) {
+                            data[j] = Math.random() * 2 - 1;
+                        }
+                        noise.buffer = buffer;
+                        
+                        const filter = audioCtx.createBiquadFilter();
+                        filter.type = 'bandpass';
+                        filter.frequency.value = 1000;
+                        
+                        const gain = audioCtx.createGain();
+                        gain.gain.value = 0.1;
+                        
+                        noise.connect(filter);
+                        filter.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        
+                        noise.start();
+                    }, i * 150);
+                }
+            }, 1000);
+            
+            this.textContent = '🎉 Hip Hip Hooray! 🎉';
+            setTimeout(() => {
+                this.textContent = '🎵 Hear Our Cheers!';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
